@@ -1,0 +1,177 @@
+/* Custom Fonts and Animations */
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+    }
+    50% {
+        text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de, 0 0 30px #ff00de;
+    }
+    100% {
+        text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+    }
+}
+
+@keyframes background-pulse {
+    0% {
+        background-color: #0d001f;
+    }
+    50% {
+        background-color: #1a0033;
+    }
+    100% {
+        background-color: #0d001f;
+    }
+}
+
+@keyframes floating-emojis {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.1;
+    }
+    50% {
+        transform: translate(10vw, -10vh) scale(1.2);
+        opacity: 0.15;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.1;
+    }
+}
+
+body {
+    background: #0d001f;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    animation: background-pulse 10s infinite ease-in-out;
+}
+
+body::before {
+    content: "💻 📊 📈 ⚙️ 💾 🚀";
+    position: fixed; /* Changed to fixed to allow scrolling */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    font-size: 15rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #00ffff;
+    opacity: 0.1;
+    filter: blur(5px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floating-emojis 15s infinite ease-in-out alternate;
+}
+
+body::after {
+    content: "📁 🔍 ☁️ ⚡️ 🧠 💥";
+    position: fixed; /* Changed to fixed to allow scrolling */
+    bottom: -10%;
+    right: -10%;
+    transform: rotate(20deg);
+    font-size: 10rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #ff00de;
+    opacity: 0.1;
+    filter: blur(4px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floating-emojis 18s infinite ease-in-out alternate-reverse;
+}
+
+/* Media Queries for better mobile experience */
+@media (max-width: 768px) {
+    body::before {
+        font-size: 8rem;
+    }
+    body::after {
+        font-size: 6rem;
+    }
+}
+
+.container {
+    max-width: 900px;
+    z-index: 1;
+}
+
+.card {
+    background-color: rgba(13, 0, 31, 0.7);
+    backdrop-filter: blur(10px);
+    border: 2px solid #ff00de;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(255, 0, 222, 0.5);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden; /* This keeps internal content of the card from overflowing */
+}
+
+.card-title {
+    color: #ff00de;
+    animation: neon-glow 2s infinite alternate;
+}
+
+.lead {
+    color: #00ffff;
+}
+
+#rollNo {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid #00ffff;
+    transition: all 0.3s ease;
+}
+
+#rollNo:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ff00de;
+    box-shadow: 0 0 10px #ff00de;
+}
+
+.btn-primary {
+    background-color: #ff00de;
+    border-color: #ff00de;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(255, 0, 222, 0.5);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00ffff;
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: #00ffff;
+    border-color: #00ffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #ff00de;
+    border-color: #ff00de;
+    box-shadow: 0 0 20px rgba(255, 0, 222, 0.8);
+    transform: translateY(-2px);
+}
+
+.alert-danger {
+    background-color: rgba(255, 0, 222, 0.1);
+    color: #ff00de;
+    border-color: #ff00de;
+    animation: neon-glow 1s infinite alternate;
+    box-shadow: 0 0 10px rgba(255, 0, 222, 0.5);
+}
+
+#certificateCanvas {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    border-color: #00ffff !important;
+}
